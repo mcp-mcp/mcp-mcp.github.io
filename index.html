@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="ko" data-lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>mcpmcp · Games, tools, and an AI team</title>
+<meta name="description" content="에너지 사업개발 일을 하는 비개발자가 AI 코딩 에이전트 팀과 만든 게임과 도구, 그리고 만드는 방식.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="mcpmcp · Games, tools, and an AI team">
+<meta property="og:description" content="AI 코딩 에이전트 팀과 만든 게임 3종, 공개 소스, 만드는 방식.">
+<meta property="og:image" content="https://mcp-mcp.github.io/img/og.png">
+<meta property="og:url" content="https://mcp-mcp.github.io/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="img/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="img/apple-touch-icon.png">
+<script>
+(function () {
+  var v = null;
+  try { v = localStorage.getItem("lang"); } catch (e) {}
+  if (v !== "ko" && v !== "en") v = (navigator.language || "ko").toLowerCase().indexOf("ko") === 0 ? "ko" : "en";
+  document.documentElement.setAttribute("data-lang", v);
+  document.documentElement.lang = v;
+})();
+</script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <div class="wrap top-in">
+    <a class="brand" href="#"><span class="mark" aria-hidden="true">M</span>mcpmcp</a>
+    <nav class="nav">
+      <a href="#games"><span class="ko">게임</span><span class="en">Games</span></a>
+      <a href="#projects"><span class="ko">프로젝트</span><span class="en">Projects</span></a>
+      <a href="#how"><span class="ko">만드는 방식</span><span class="en">How</span></a>
+      <button class="lang" type="button" id="lang" aria-label="언어 바꾸기 / switch language"><span class="ko">EN</span><span class="en">KO</span></button>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero wrap">
+    <p class="who"><span class="ko">mcpmcp · MCP Lab · 비개발자</span><span class="en">mcpmcp · MCP Lab · non-developer</span></p>
+    <h1>
+      <span class="ko">게임과 도구를,<br><em>AI 팀과 함께</em> 만듭니다.</span>
+      <span class="en">Games and tools,<br><em>built with an AI team.</em></span>
+    </h1>
+    <p class="lead">
+      <span class="ko">에너지 사업개발 일을 하며 AI 코딩 에이전트 팀으로 게임·자동화·도구를 만듭니다. 코드는 제가 직접 쓰지 않고 무엇을 만들지 정하고 고르기만 해요. 아래는 그렇게 만든 것과 만드는 방식입니다.</span>
+      <span class="en">I work in energy project development and build games, automations, and tools with a team of AI coding agents. I don't write the code myself. Here is what I've made and how.</span>
+    </p>
+    <ul class="stats">
+      <li><b>3</b><span class="ko">브라우저에서 바로 되는 게임</span><span class="en">games you can play in the browser</span></li>
+      <li><b>50</b><span class="ko">일을 나눈 영역(스트림)</span><span class="en">areas (streams) the work is split into</span></li>
+      <li><b>1,400</b><span class="ko">AI가 짠 파이썬 파일, 주인 없는 파일 0</span><span class="en">Python files written by AI, none unowned</span></li>
+    </ul>
+    <p class="asof"><span class="ko">숫자는 2026-10-23 기준</span><span class="en">Numbers as of 2026-10-23</span></p>
+  </section>
+
+  <section id="games" class="block wrap">
+    <h2><span class="ko">바로 해 보는 게임</span><span class="en">Games you can play now</span></h2>
+    <p class="sub"><span class="ko">누르면 브라우저에서 바로 열립니다. 무료, 광고 없음. 1인 회사 MCP Lab 이름으로 냅니다.</span><span class="en">Opens right in your browser. Free, no ads. Published under my one-person studio, MCP Lab.</span></p>
+    <div class="games">
+      <a class="game" href="https://mcplab.itch.io/zap-lasso" target="_blank" rel="noopener">
+        <img src="img/zap-lasso.webp" width="1024" height="500" alt="잽 라쏘 대표 그림, 전선 로봇이 적 무리를 감싸는 장면" loading="lazy">
+        <div class="g-body">
+          <div class="g-head"><img class="g-icon" src="img/zap-lasso-icon.webp" width="40" height="40" alt=""><div><h3><span class="ko">잽 라쏘</span><span class="en">Zap Lasso</span></h3><p class="g-genre"><span class="ko">생존 액션</span><span class="en">Survival action</span></p></div></div>
+          <p class="g-desc"><span class="ko">지나간 길이 전선이 됩니다. 적 떼를 한 바퀴 감싸면 한꺼번에 감전.</span><span class="en">Your path becomes a live wire. Loop around a swarm to zap them all at once.</span></p>
+          <p class="chips"><span>Web</span><span>Windows</span></p>
+          <span class="play"><span class="ko">바로 하기</span><span class="en">Play</span> →</span>
+        </div>
+      </a>
+      <a class="game" href="https://mcplab.itch.io/clock-out-heroes" target="_blank" rel="noopener">
+        <img src="img/clock-out-heroes.webp" width="1024" height="500" alt="칼퇴 원정대 대표 그림, 동물 회사원들과 보라색 용" loading="lazy">
+        <div class="g-body">
+          <div class="g-head"><img class="g-icon" src="img/clock-out-heroes-icon.webp" width="40" height="40" alt=""><div><h3><span class="ko">칼퇴 원정대</span><span class="en">Clock-Out Heroes</span></h3><p class="g-genre"><span class="ko">방치형 RPG</span><span class="en">Idle RPG</span></p></div></div>
+          <p class="g-desc"><span class="ko">동물 회사원 원정대가 회사 괴물을 무찌르며 층을 올라갑니다. 목표는 칼퇴.</span><span class="en">A squad of animal office workers fights office monsters floor by floor. The goal: leave on time.</span></p>
+          <p class="chips"><span>Web</span><span>Windows</span><span class="ko">한국어·영어</span><span class="en">Korean · English</span></p>
+          <span class="play"><span class="ko">바로 하기</span><span class="en">Play</span> →</span>
+        </div>
+      </a>
+      <a class="game" href="https://mcplab.itch.io/jeoseung-chasa" target="_blank" rel="noopener">
+        <img src="img/jeoseung-chasa.webp" width="1024" height="500" alt="저승차사 대표 그림, 저승 관문 앞의 차사와 소머리 요괴" loading="lazy">
+        <div class="g-body">
+          <div class="g-head"><img class="g-icon" src="img/jeoseung-chasa-icon.webp" width="40" height="40" alt=""><div><h3><span class="ko">저승차사</span><span class="en">Jeoseung Chasa</span></h3><p class="g-genre"><span class="ko">핵앤슬래시</span><span class="en">Hack-and-slash</span></p></div></div>
+          <p class="g-desc"><span class="ko">한국 저승의 요괴를 베며 던전을 내려갑니다. 끝에는 소머리 대장 우두나찰이 기다립니다.</span><span class="en">Play as a reaper of the Korean underworld (that's what "Jeoseung Chasa" means) and cut your way down to the bull-headed boss.</span></p>
+          <p class="chips"><span>Web</span><span>Windows</span><span class="ko">한국어·영어·일본어</span><span class="en">Korean · English · Japanese</span></p>
+          <span class="play"><span class="ko">바로 하기</span><span class="en">Play</span> →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <section id="projects" class="block wrap">
+    <h2><span class="ko">공개 소스 프로젝트</span><span class="en">Open-source projects</span></h2>
+    <a class="card proj" href="https://github.com/mcp-mcp/stream-harness" target="_blank" rel="noopener">
+      <div class="p-icon" aria-hidden="true"><svg viewBox="0 0 40 40"><rect x="4" y="6" width="32" height="6" rx="3"/><rect x="4" y="17" width="22" height="6" rx="3"/><rect x="4" y="28" width="28" height="6" rx="3"/></svg></div>
+      <div class="p-text">
+        <h3>stream-harness</h3>
+        <p><span class="ko">AI 코딩 에이전트 여럿에게 일을 맡길 때 쓰는 운영 틀. 일을 '스트림'으로 나누고 스트림마다 지도 한 장(현황·파일·함정·규칙)을 둡니다. 템플릿과 점검 도구가 들어 있습니다.</span><span class="en">An operating harness for running several AI coding agents. Work is split into "streams", each with a one-page map of status, files, pitfalls, and rules. Includes templates and a checker.</span></p>
+      </div>
+      <span class="go">GitHub →</span>
+    </a>
+  </section>
+
+  <section id="how" class="block wrap">
+    <h2><span class="ko">만드는 방식</span><span class="en">How it's built</span></h2>
+    <ul class="card rows">
+      <li><span class="r-icon c1" aria-hidden="true"></span><div><b><span class="ko">코드는 전부 AI가 씁니다</span><span class="en">AI writes all the code</span></b><p><span class="ko">저는 무엇을 왜 만들지 정하고, 결과를 보고 고르기만 합니다. 게임·사이트·봇 코드는 전부 AI(주로 클로드 코드)가 짰고, 게임 그림도 AI(제미나이)로 만들었습니다.</span><span class="en">I decide what to build and why, then review and choose. Every game, site, and bot was written by AI, mostly Claude Code, and the game art was made with AI (Gemini) too.</span></p></div></li>
+      <li><span class="r-icon c2" aria-hidden="true"></span><div><b><span class="ko">일을 50개 영역으로 나눕니다</span><span class="en">Work is split into 50 areas</span></b><p><span class="ko">영역마다 지도 한 장을 두고, 파이썬 파일 1,400개가 전부 어느 한 영역에 속하게 합니다. 주인 없는 코드는 점검이 막습니다.</span><span class="en">Each area has a one-page map, and every one of 1,400 Python files belongs to exactly one area. A check blocks orphaned code.</span></p></div></li>
+      <li><span class="r-icon c3" aria-hidden="true"></span><div><b><span class="ko">결과물은 평가단이 먼저 봅니다</span><span class="en">A review panel sees it first</span></b><p><span class="ko">게임 한 판, 기획서 한 장도 생각이 서로 다른 가상 위원 3~7명이 따로 점수를 매긴 뒤에 제게 옵니다.</span><span class="en">Even a single game build or plan is scored separately by 3–7 simulated reviewers with different viewpoints before it reaches me.</span></p></div></li>
+      <li><span class="r-icon c4" aria-hidden="true"></span><div><b><span class="ko">고장은 AI가 먼저 찾습니다</span><span class="en">AI finds breakage first</span></b><p><span class="ko">집 PC 한 대에서 자동화가 하루 종일 돌고, 매일 점검이 이상을 찾고, 정기 자동수리가 오류를 손봅니다.</span><span class="en">Automations run all day on one home PC; daily checks flag problems and a scheduled auto-repair fixes errors.</span></p></div></li>
+    </ul>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <p>© 2026 mcpmcp · MCP Lab</p>
+    <p class="links"><a href="https://github.com/mcp-mcp" target="_blank" rel="noopener">GitHub</a><a href="https://www.linkedin.com/in/mcjeffpark" target="_blank" rel="noopener">LinkedIn</a><a href="https://mcplab.itch.io/" target="_blank" rel="noopener">itch.io</a></p>
+  </div>
+</footer>
+
+<script>
+document.getElementById("lang").addEventListener("click", function () {
+  var r = document.documentElement;
+  var v = r.getAttribute("data-lang") === "en" ? "ko" : "en";
+  r.setAttribute("data-lang", v);
+  r.lang = v;
+  try { localStorage.setItem("lang", v); } catch (e) {}
+});
+</script>
+</body>
+</html>
