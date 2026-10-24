@@ -92,8 +92,11 @@ def load_deny(path):
     terms = [t for t in d.get("terms", []) if isinstance(t, str) and t.strip()]
     if not terms:
         raise ValueError("금지어가 비어 있음")
-    return (terms, list(d.get("allow", [])), set(d.get("allow_binary", [])),
-            set(d.get("vault_ignore", [])))
+    # 이 저장소에만 허락한 문구(정확한 공개 이름·주소만). 다른 공개 저장소에는 안 퍼진다.
+    mine = d.get("allow_by_repo", {}).get(Path(__file__).resolve().parent.parent.name, {})
+    return (terms, list(d.get("allow", [])) + list(mine.get("allow", [])),
+            set(d.get("allow_binary", [])),
+            set(d.get("vault_ignore", [])) | set(mine.get("vault_ignore", [])))
 
 
 def load_vault(folder, skip=None, ignore=()):

@@ -43,6 +43,14 @@ a { color: inherit; text-decoration: none; }
 .hero h1 { margin: 0; font-size: clamp(38px, 6.4vw, 68px); line-height: 1.12; font-weight: 800; letter-spacing: -.035em; }
 .hero h1 em { font-style: normal; color: var(--accent); }
 .lead { max-width: 640px; margin: 22px 0 0; font-size: 19px; line-height: 1.6; color: var(--ink2); }
+.cta { display: flex; flex-wrap: wrap; gap: 10px; margin: 28px 0 0; }
+.btn { display: inline-flex; align-items: center; gap: 8px; height: 48px; padding: 0 20px; border-radius: 14px; font-size: 16px; font-weight: 700; transition: transform .12s ease; }
+.btn:active { transform: scale(.97); }
+.btn-main { background: var(--accent); color: #fff; }
+.btn-main:hover { background: #5a4ad0; }
+.btn-sub { background: var(--card); color: var(--ink); border: 1px solid var(--line); }
+.btn-sub:hover { border-color: #d1d6db; }
+.li { width: 18px; height: 18px; fill: currentColor; flex: none; }
 .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 40px 0 0; padding: 0; list-style: none; max-width: 760px; }
 .stats li { background: var(--card); border-radius: var(--radius); padding: 20px 22px; }
 .stats b { display: block; font-size: 30px; line-height: 40px; font-weight: 800; letter-spacing: -.02em; }
@@ -80,6 +88,12 @@ a { color: inherit; text-decoration: none; }
 .p-text h3 { margin: 0; font-size: 19px; font-weight: 700; }
 .p-text p { margin: 6px 0 0; font-size: 15px; line-height: 1.55; color: var(--ink2); }
 .go { flex: none; font-size: 15px; font-weight: 700; color: var(--accent); }
+
+/* 운영 중인 사이트 */
+.sites { display: grid; gap: 12px; margin-top: 22px; }
+.sites .proj { margin-top: 0; align-items: flex-start; }
+.site h3 small { margin-left: 6px; font-size: 14px; font-weight: 600; color: var(--ink3); }
+.site .go { align-self: center; }
 
 /* 만드는 방식 */
 .rows { margin: 22px 0 0; padding: 8px 0; list-style: none; }
@@ -122,10 +136,12 @@ a { color: inherit; text-decoration: none; }
   .p-icon { width: 44px; height: 44px; }
   .p-text { flex-basis: calc(100% - 62px); }
   .go { width: 100%; }
+  .site .go { align-self: auto; }
+  .btn { height: 46px; padding: 0 18px; font-size: 15px; }
   .rows li { padding: 14px 20px; }
   .foot-in { flex-direction: column; align-items: flex-start; }
 }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
-  .game, .proj { transition: none; }
+  .game, .proj, .btn { transition: none; }
 }
