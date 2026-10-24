@@ -53,7 +53,7 @@ a { color: inherit; text-decoration: none; }
 .li { width: 18px; height: 18px; fill: currentColor; flex: none; }
 .stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 40px 0 0; padding: 0; list-style: none; max-width: 760px; }
 .stats li { background: var(--card); border-radius: var(--radius); padding: 20px 22px; }
-.stats b { display: block; font-size: 30px; line-height: 40px; font-weight: 800; letter-spacing: -.02em; }
+.stats b { display: block; white-space: nowrap; font-size: 30px; line-height: 40px; font-weight: 800; letter-spacing: -.02em; }
 .stats span { display: block; margin-top: 2px; font-size: 15px; color: var(--ink2); }
 .asof { margin: 10px 0 0; font-size: 13px; color: var(--ink3); }
 
@@ -76,6 +76,7 @@ a { color: inherit; text-decoration: none; }
 .g-desc { margin: 14px 0 0; font-size: 15px; line-height: 1.55; color: var(--ink2); }
 .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 14px 0 0; }
 .chips span { font-size: 13px; font-weight: 600; color: var(--ink2); background: var(--bg); border-radius: 999px; padding: 4px 10px; }
+.chips .gm { background: var(--accent-soft); color: #5a4ad0; }
 .play { margin-top: auto; padding-top: 18px; font-size: 15px; font-weight: 700; color: var(--accent); }
 
 /* 공개 소스 */
@@ -129,7 +130,7 @@ a { color: inherit; text-decoration: none; }
   .lead { font-size: 17px; }
   .stats { grid-template-columns: 1fr; gap: 8px; margin-top: 28px; }
   .stats li { display: flex; align-items: baseline; gap: 12px; padding: 14px 18px; }
-  .stats b { font-size: 24px; line-height: 32px; min-width: 64px; }
+  .stats b { font-size: 24px; line-height: 32px; min-width: 76px; }
   .stats span { margin: 0; }
   .games { grid-template-columns: 1fr; }
   .proj { flex-wrap: wrap; align-items: flex-start; padding: 20px; }

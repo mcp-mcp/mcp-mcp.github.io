@@ -92,11 +92,25 @@ def load_deny(path):
     terms = [t for t in d.get("terms", []) if isinstance(t, str) and t.strip()]
     if not terms:
         raise ValueError("금지어가 비어 있음")
-    # 이 저장소에만 허락한 문구(정확한 공개 이름·주소만). 다른 공개 저장소에는 안 퍼진다.
-    mine = d.get("allow_by_repo", {}).get(Path(__file__).resolve().parent.parent.name, {})
-    return (terms, list(d.get("allow", [])) + list(mine.get("allow", [])),
-            set(d.get("allow_binary", [])),
+    # 이 저장소에만 허락한 공개 이름·주소. 다른 공개 저장소에는 안 퍼진다(사본마다 폴더 이름으로 고름).
+    mine = d.get("allow_by_repo", {}).get(ROOT.name, {})
+    words = mine.get("allow", [])
+    if not isinstance(words, list) or not all(isinstance(w, str) and len(w) >= 4 for w in words):
+        raise ValueError("allow_by_repo 형식 오류")
+    REPO_ALLOW[:] = [_exact(w) for w in words]
+    return (terms, list(d.get("allow", [])), set(d.get("allow_binary", [])),
             set(d.get("vault_ignore", [])) | set(mine.get("vault_ignore", [])))
+
+
+REPO_ALLOW = []  # 금지어 검사에만 쓴다 — 이메일·키 같은 형식 검사는 원문 그대로 본다
+
+
+def _exact(w):
+    """대소문자까지 같은 문구만. 영문·숫자로 시작·끝나면 앞뒤가 다른 글자·@·/ 로 이어진 경우(@아이디 꼴 계정, 메일 주소)는 안 지운다."""
+    edge = lambda c: c.isascii() and c.isalnum()
+    pre = r"(?<![\w@/.\-])" if edge(w[0]) else ""
+    post = r"(?![\w@\-])" if edge(w[-1]) else ""
+    return re.compile(pre + re.escape(w) + post)
 
 
 def load_vault(folder, skip=None, ignore=()):
@@ -201,6 +215,8 @@ def scan_text(path, text, terms, allow, vault, hits):
         for name, pat in PATTERNS:
             if re.search(pat, clean):
                 hits.append((path, no, name))
+        for rx in REPO_ALLOW:
+            clean = rx.sub(" ", clean)
         if has_term(clean, terms):
             hits.append((path, no, "금지어"))
     for value, label in vault.items():  # 전문 대조: 여러 줄 값·이스케이프된 값까지
